@@ -1,1 +1,1 @@
-# IST
+A forum for Hanoi University's students 
