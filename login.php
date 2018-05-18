@@ -1,29 +1,36 @@
-<?php
-include 'loginAuthenticate.php';
-include './common/sidebar.php';
-if (isset($_SESSION['login_user'])){
-  header("location: index.php");
-}
-?>
 
 <!DOCTYPE html>
 <html>
 <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+</head>
 <title>Login</title>
 </head>
 <body>
+
 <div class = 'content'>
   <div class = 'container'>
     <div class = 'row justify-content-center'>
       <div class = 'col-md-8'>
+      <?php
+            session_start();
+            if (!empty($_SESSION['message'])) {
+               echo $_SESSION['message'];
+            }
+            ?>
         <div class = 'card'>
           <div class = 'card-header'>Login</div>
 
           <div class = 'card-body'>
-            <form method = "POST" action="login.php">
+            <form method = "POST" action="loginAuthenticate.php">
               <div class = 'form-group row'>
                 <label for="email" class ='col-sm-4 col-form-label text-md-right'>Email</label>
-                
+
                 <div class = 'col-md-6'>
                   <input id = 'email' type="email" class = 'form-control' name = 'email' required>
                 </div>
@@ -35,7 +42,7 @@ if (isset($_SESSION['login_user'])){
                   <input id = 'password' type="password" class = 'form-control' name = 'password' required>
                 </div>
               </div>
-              
+
               <div class = 'form-group row mb-0'>
                 <div class = 'col-md-8 offset-md-4'>
                   <button type = 'submit' class = 'btn btn-primary' name = 'submit'>Login</button>

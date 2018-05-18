@@ -1,20 +1,23 @@
 <?php
+include './common/connect.php';
 session_start();
-$error = '';
-if (isset($_POST['submit'])){
-
     $email = $_POST['email'];
     $password = $_POST['password'];
 
-    $conn = mysqli_connect('localhost', 'root', '', 'forum');
-    // $username = mysqli_real_escape_string($username);
-    // $password = mysqli_real_escape_string($password);
+    $email = mysqli_real_escape_string($conn, $email);
+    $password = mysqli_real_escape_string($conn, $password);
 
     $query = mysqli_query($conn, "SELECT * FROM users WHERE password ='$password' AND email = '$email'");
     $rows = mysqli_num_rows($query);
     if (!$query || $rows == 0)
     {
-        $error = "Invalid Email or Password";
+        $_SESSION['message'] = 
+        "<div class = 'alert alert-danger' role = 'alert'> 
+            <p style='text-align:center'>
+                Invalid Email or Password
+            </p>
+        </div>";
+        header('location: login.php');
     }else{
         
         $_SESSION['login_user'] = $email;
@@ -22,5 +25,9 @@ if (isset($_POST['submit'])){
 
     }
     mysqli_close($conn);
-}
 ?>
+
+<!DOCTYPE html>
+<html>
+You are now logged in <?php echo $email ?>
+</html>
