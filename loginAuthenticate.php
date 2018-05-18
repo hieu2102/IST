@@ -1,22 +1,16 @@
 <?php
-include '.  /common/connect.php';
+include './common/connect.php';
 session_start();
     $email = $_POST['email'];
     $password = $_POST['password'];
 
-    $email = mysqli_real_escape_string($conn, $email);
-    $password = mysqli_real_escape_string($conn, $password);
-
-    $query = mysqli_query($conn, "SELECT * FROM users WHERE password ='$password' AND email = '$email'");
+    $query = mysqli_query($conn, "SELECT * FROM users WHERE 
+            password ='$password' AND 
+            email = '$email'");
     $rows = mysqli_num_rows($query);
-    if (!$query || $rows == 0)
+    if ($rows == 0)
     {
-        $_SESSION['message'] = 
-        "<div class = 'alert alert-danger' role = 'alert'> 
-            <p style='text-align:center'>
-                Invalid Email or Password
-            </p>
-        </div>";
+        $_SESSION['message'] = alert_msg('danger', 'Invalid Email or Password');
         header('location: login.php');
     }else{
         
