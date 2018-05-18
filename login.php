@@ -21,6 +21,8 @@
             session_start();
             if (!empty($_SESSION['message'])) {
                echo $_SESSION['message'];
+               //remove alert message after being read
+               unset($_SESSION['message']);
             }
             ?>
         <div class = 'card'>

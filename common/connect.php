@@ -9,4 +9,15 @@ if (!$conn){
     //force connection
     $conn = mysqli_connect($host, $username, $password, "forum");
 }
+
+//function for showing alert message to user
+//type: the type of alert
+//string: the alert message
+function alert_msg($type,$string){
+    return "<div class = 'alert alert-".$type."' role = 'alert'>
+    <p style = 'text-align:center'>"
+            .$string.
+        "</p>
+</div>";
+}
 ?>

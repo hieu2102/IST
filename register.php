@@ -19,6 +19,8 @@
             session_start();
             if (!empty($_SESSION['message'])) {
                echo $_SESSION['message'];
+               //remove alert message after being read
+               unset($_SESSION['message']);
             }
             ?>
         <div class = 'card'>
@@ -28,31 +30,43 @@
               <div class = 'form-group row'>
                 <label for="fname" class ='col-sm-4 col-form-label text-md-right'>First Name</label>
                 <div class = 'col-md-6'>
-                  <input id = 'fname' type="text" class = 'form-control' name = 'fname' required>
+                  <input id = 'fname' type="text" class = 'form-control' 
+                  placeholder = 'Must not contains special characters' name = 'fname' required>
                 </div>
               </div>
               <div class = 'form-group row'>
                 <label for="lname" class ='col-sm-4 col-form-label text-md-right'>Last Name</label>
                 <div class = 'col-md-6'>
-                  <input id = 'lname' type="text" class = 'form-control' name = 'lname' required>
+                  <input id = 'lname' type="text" class = 'form-control' 
+                  placeholder = 'Must not contains special characters' name = 'lname' required>
                 </div>
               </div>
               <div class = 'form-group row'>
                 <label for = "password" class = 'col-md-4 col-form-label text-md-right'>Password</label>
                 <div class = 'col-md-6'>
-                  <input id = 'password' type="password" class = 'form-control' name = 'password' required>
+                  <input id = 'password' type="password" class = 'form-control' 
+                  placeholder = 'Input Password'name = 'password' required>
                 </div>
               </div>
               <div class = 'form-group row'>
                 <label for = "re_password" class = 'col-md-4 col-form-label text-md-right'>Re-type Password</label>
                 <div class = 'col-md-6'>
-                  <input id = 're_password' type="password" class = 'form-control' name = 're_password' required>
+                  <input id = 're_password' type="password" class = 'form-control' 
+                  placeholder = 'Re-type Password' name = 're_password' required>
                 </div>
               </div>
               <div class = 'form-group row'>
                 <label for = "email" class = 'col-md-4 col-form-label text-md-right'>Email</label>
                 <div class = 'col-md-6'>
-                  <input id = 'email' type="email" class = 'form-control' name = 'email' required>
+                  <input id = 'email' type="email" class = 'form-control' 
+                  placeholder = 'Input Email' name = 'email' required>
+                </div>
+              </div>  
+              <div class = 'form-group row'>
+                <label for = "ID" class = 'col-md-4 col-form-label text-md-right'>Student ID</label>
+                <div class = 'col-md-6'>
+                  <input id = 'ID' type="number" class = 'form-control' 
+                  placeholder = 'Input Student ID' name = 'ID' required>
                 </div>
               </div>              
               <div class = 'form-group row mb-0'>
