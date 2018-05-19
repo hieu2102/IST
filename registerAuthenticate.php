@@ -1,5 +1,6 @@
 <?php
 include './common/connect.php';
+
 session_start();
 $fname = $_POST['fname'];
 $lname = $_POST['lname'];
@@ -12,7 +13,6 @@ if ($password !== $re_password) {
     $_SESSION['message'] = alert_msg('danger', 'Password and re-Password does not match');
     header('location: register.php');
 }
-
 $check = mysqli_query($conn, "SELECT * FROM users WHERE
             email = '$email' or
             id = '$id'
@@ -31,3 +31,4 @@ mysqli_query($conn, "INSERT INTO users
 
 $_SESSION['message'] = alert_msg('success', 'Account Created');
 header('location: login.php');
+?>
