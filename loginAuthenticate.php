@@ -20,6 +20,7 @@ if ($rows == 0) {
     //verify if input password == hashed password
     if (password_verify($password, $hashedP)) {
         $_SESSION['login_user'] = $email;
+        $_SESSION['message'] = alert_msg('success', 'Logged In');
         header('location: index.php');
     }else{
         $_SESSION['message'] = alert_msg('danger', 'Invalid Password');
