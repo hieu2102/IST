@@ -1,5 +1,5 @@
 <?php
-include './common/connect.php';
+include '../common/connect.php';
 
 session_start();
 $fname = $_POST['fname'];

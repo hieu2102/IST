@@ -42,7 +42,7 @@ include 'connect.php'
       </li>
     </ul>
     <form class="form-inline my-2 my-lg-0">
-      <a class="btn btn-primary" href ="logout.php">Log Out</a>
+      <a class="btn btn-primary" href ="./auth/logout.php">Log Out</a>
     </form>
   </div>
 </nav>

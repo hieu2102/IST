@@ -1,5 +1,5 @@
 <?php
-include './common/connect.php';
+include '../common/connect.php';
 session_start();
 $email = $_POST['email'];
 $password = $_POST['password'];
@@ -21,7 +21,7 @@ if ($rows == 0) {
     if (password_verify($password, $hashedP)) {
         $_SESSION['login_user'] = $email;
         $_SESSION['message'] = alert_msg('success', 'Logged In');
-        header('location: index.php');
+        header('location: ../index.php');
     }else{
         $_SESSION['message'] = alert_msg('danger', 'Invalid Password');
         header('location: login.php');
