@@ -9,3 +9,11 @@ $conn = mysqli_connect($host, $username, $password, $db);
 if (!$conn){
     die ("Connection Failed");
 }
+
+function alert_msg($type,$string){
+    return "<div class = 'alert alert-".$type."' role = 'alert'>
+    <p style = 'text-align:center'>"
+            .$string.
+        "</p>
+</div>";
+}

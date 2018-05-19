@@ -44,7 +44,7 @@ if (!isset($_SESSION['login_user'])){
     </ul>
     <?php
         if ($_SESSION['level'] =='admin'){
-          echo "<a class = 'nav-link' href='./admin/admin.php'>Admin Panel</a>";
+          echo "<a class = 'nav-link' href='./admin/index.php'>Admin Panel</a>";
         }
       ?>
     <form class="form-inline my-2 my-lg-0">

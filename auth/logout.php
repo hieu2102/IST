@@ -1,8 +1,7 @@
 <?php
-include "../common/connect.php";
+include "./common/connect.php";
 session_start();
-unset($_SESSION['login_user']);
-unset($_SESSION['level']);
+session_unset();
 header('location: login.php');
 session_destroy();
 ?>
