@@ -1,5 +1,6 @@
 <?php
 include './common/navbar.php';
+
 ?>
 
 <!DOCTYPE html>
