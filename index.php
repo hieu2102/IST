@@ -1,6 +1,5 @@
 <?php
 include './common/navbar.php';
-session_start();
 ?>
 
 <!DOCTYPE html>

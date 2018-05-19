@@ -1,9 +1,9 @@
 <?php
 include 'connect.php';
 session_start();
-if (!isset($_SESSION['login_user'])){
-  $_SESSION['message'] = alert_msg('warning', 'Please log in first');
-  header('location: ./auth/login.php');
+if ($_SESSION['level'] != 'admin'){
+  $_SESSION['message'] = alert_msg('warning', 'Unauthorized Access');
+  header('location: ./index.php');
 }
 ?>
 <!DOCTYPE html>
@@ -17,8 +17,8 @@ if (!isset($_SESSION['login_user'])){
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand" href="./index.php">Forum</a>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="admin.php">Forum</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -42,11 +42,7 @@ if (!isset($_SESSION['login_user'])){
         <a class="nav-link disabled" href="#">Disabled</a>
       </li>
     </ul>
-    <?php
-        if ($_SESSION['level'] =='admin'){
-          echo "<a class = 'nav-link' href='./admin/admin.php'>Admin Panel</a>";
-        }
-      ?>
+    <a class = 'nav-link' href="../index.php" style = 'color:red'><button class = 'btn btn-light'>To Index</button></a>
     <form class="form-inline my-2 my-lg-0">
       <a class="btn btn-primary" href ="./auth/logout.php">Log Out</a>
     </form>
