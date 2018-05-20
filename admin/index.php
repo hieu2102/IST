@@ -1,5 +1,5 @@
 <?php
-include './common/adminNav.php';
+include 'common/adminNav.php';
 ?>
 
 
@@ -12,5 +12,17 @@ include './common/adminNav.php';
     <title>Admin Panel</title>
 </head>
 <body>
+<?php
+if (isset($_SESSION['message'])) {
+    echo "<div id = 'message'>" . $_SESSION['message'] . "</div>";
+    unset($_SESSION['message']);
+}
+
+if (isset($_GET['page'])) {
+    $page = $_GET['page'];
+    include 'page/'. $page.'.php';
+}
+
+?>
 </body>
 </html>

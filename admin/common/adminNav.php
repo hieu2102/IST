@@ -18,7 +18,7 @@ if ($_SESSION['level'] != 'admin'){
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href=''>Forum</a>
+  <a class="navbar-brand" href='index.php'>Forum</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -44,7 +44,7 @@ if ($_SESSION['level'] != 'admin'){
     </ul>
     <a class = 'nav-link' href="../index.php" style = 'color:red'><button class = 'btn btn-light'>To Index</button></a>
     <form class="form-inline my-2 my-lg-0">
-      <a class="btn btn-primary" href ="./auth/logout.php">Log Out</a>
+      <a class="btn btn-primary" href ="../auth/logout.php">Log Out</a>
     </form>
   </div>
 </nav>

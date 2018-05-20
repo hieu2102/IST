@@ -11,7 +11,7 @@ if (!$conn){
 
 //function for showing alert message to user
 //type: the type of alert
-//string: the alert message
+//string: the content of the message
 function alert_msg($type,$string){
     return "<div class = 'alert alert-".$type."' role = 'alert'>
     <p style = 'text-align:center'>"
