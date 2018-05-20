@@ -31,14 +31,14 @@
                 <label for="fname" class ='col-sm-4 col-form-label text-md-right'>First Name</label>
                 <div class = 'col-md-6'>
                   <input id = 'fname' type="text" class = 'form-control' 
-                  placeholder = 'Input first name' name = 'fname' required>
+                  placeholder = 'Input plain English text' name = 'fname' required>
                 </div>
               </div>
               <div class = 'form-group row'>
                 <label for="lname" class ='col-sm-4 col-form-label text-md-right'>Last Name</label>
                 <div class = 'col-md-6'>
                   <input id = 'lname' type="text" class = 'form-control' 
-                  placeholder = 'Input last name' name = 'lname' required>
+                  placeholder = 'Input plain English text' name = 'lname' required>
                 </div>
               </div>
               <div class = 'form-group row'>

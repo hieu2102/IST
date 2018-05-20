@@ -27,25 +27,12 @@ if ($_SESSION['level'] != 'admin'){
       <li class="nav-item">
         <a class="nav-link" href="index.php?page=users">Users List</a>
       </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Dropdown
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Something else here</a>
-        </div>
-      </li>
       <li class="nav-item">
-        <a class="nav-link disabled" href="#">Disabled</a>
+        <a class="nav-link" href="index.php?page=content">Content Manage</a>
       </li>
     </ul>
-    <a class = 'nav-link' href="../index.php" style = 'color:red'><button class = 'btn btn-light'>To Index</button></a>
-    <form class="form-inline my-2 my-lg-0">
+    <a class = 'nav-link' href="../index.php" ><button class = 'btn btn-light'>To Index</button></a>
       <a class="btn btn-primary" href ="../auth/logout.php">Log Out</a>
-    </form>
   </div>
 </nav>
 </body>

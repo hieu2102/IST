@@ -21,9 +21,9 @@ $list = mysqli_query(
 
 <br><br>
 <div class = 'container'>
-    <table class = 'table border'>
-        <thead>
-            <tr>
+    <table class = 'table table-hover'>
+            <thead class="thead-dark">
+            <tr class ='table-primary'>
                 <td>ID</td>
                 <td>First Name</td>
                 <td>Last Name</td>
