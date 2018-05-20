@@ -3,7 +3,6 @@
 //show all categories
 $list = mysqli_query($conn, "SELECT cat_id, cat_name, cat_description from categories
                             order by id asc");
-
 ?>
 
 <!DOCTYPE html>
@@ -18,19 +17,14 @@ $list = mysqli_query($conn, "SELECT cat_id, cat_name, cat_description from categ
     <div class = 'container'>
     <br><br>
         <table class = 'table table-hover'>
-            <th class = 'thead-dark'>
-                    <tr class = 'table-primary'>
+                <tr class = 'table-primary'>
                     <td>ID</td>
                     <td>Category's Name</td>
                     <td>Description</td>
                 </tr>
-            </th>
             <tbody>
                 <?php
-                if($list == false){
-                    echo "No content. \n Create some?";
-                }
-                else{
+                if ($list != false){
                     while ($row = mysqli_fetch_object($list)){
                         echo "<tr>";
                         echo "<td>".$row->cat_id."</td>";
