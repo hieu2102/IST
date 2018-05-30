@@ -1,7 +1,7 @@
 <?php
 
 //show all categories
-$list = mysqli_query($conn, "SELECT cat_id, cat_name, cat_description from categories
+$list = mysqli_query($conn, "SELECT id, name, description from categories
                             order by id asc");
 ?>
 
@@ -27,9 +27,9 @@ $list = mysqli_query($conn, "SELECT cat_id, cat_name, cat_description from categ
                 if ($list != false){
                     while ($row = mysqli_fetch_object($list)){
                         echo "<tr>";
-                        echo "<td>".$row->cat_id."</td>";
-                        echo "<td>".$row->cat_name."</td>";
-                        echo "<td>".$row->cat_description."</td>";
+                        echo "<td>".$row->id."</td>";
+                        echo "<td>".$row->name."</td>";
+                        echo "<td>".$row->description."</td>";
                         echo "</tr>";
                     }
                 }
