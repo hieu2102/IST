@@ -28,17 +28,9 @@
           <div class = 'card-body'>
             <form method = "POST" action="registerAuthenticate.php">
               <div class = 'form-group row'>
-                <label for="fname" class ='col-sm-4 col-form-label text-md-right'>First Name</label>
+                <label for= "name" class = 'col-md-4 col-form-label text-md-right'>Username</label>
                 <div class = 'col-md-6'>
-                  <input id = 'fname' type="text" class = 'form-control' 
-                  placeholder = 'Input plain English text' name = 'fname' required>
-                </div>
-              </div>
-              <div class = 'form-group row'>
-                <label for="lname" class ='col-sm-4 col-form-label text-md-right'>Last Name</label>
-                <div class = 'col-md-6'>
-                  <input id = 'lname' type="text" class = 'form-control' 
-                  placeholder = 'Input plain English text' name = 'lname' required>
+                  <input id = 'name' type="text" class = 'form-control' placeholder = 'Input username' name = 'name' required>
                 </div>
               </div>
               <div class = 'form-group row'>

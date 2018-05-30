@@ -2,11 +2,10 @@
 //show all users
 $list = mysqli_query(
     $conn, "SELECT
-    id, first_name, last_name, email, level
+    id, username, email, level
     from users
     order by id asc"
 );
-
 ?>
 
 <!DOCTYPE html>
@@ -25,8 +24,7 @@ $list = mysqli_query(
             <thead class="thead-dark">
             <tr class ='table-primary'>
                 <td>ID</td>
-                <td>First Name</td>
-                <td>Last Name</td>
+                <td>Username</td>
                 <td>Email</td>
                 <td>Level</td>
             </tr>
@@ -34,13 +32,12 @@ $list = mysqli_query(
         <tbody>
             <?php
             while ($row = mysqli_fetch_object($list)){
-                echo "<tr>";
-                echo "<td>".$row->id."</td>";
-                echo "<td>".$row->first_name."</td>";
-                echo "<td>".$row->last_name."</td>";
-                echo "<td>".$row->email."</td>";
-                echo "<td>".$row->level."</td>";
-                echo "</tr>";
+                echo "<tr>
+                        <td>$row->id</td>
+                        <td>$row->username</td>
+                        <td>$row->email</td>
+                        <td>$row->level</td>
+                    </tr>";
                 
             }
             ?>

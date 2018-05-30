@@ -16,26 +16,37 @@ $list = mysqli_query($conn, "SELECT id, name, description from categories
 <body>
     <div class = 'container'>
     <br><br>
-        <table class = 'table table-hover'>
-                <tr class = 'table-primary'>
-                    <td>ID</td>
-                    <td>Category's Name</td>
-                    <td>Description</td>
-                </tr>
-            <tbody>
-                <?php
-                if ($list != false){
-                    while ($row = mysqli_fetch_object($list)){
-                        echo "<tr>";
-                        echo "<td>".$row->id."</td>";
-                        echo "<td>".$row->name."</td>";
-                        echo "<td>".$row->description."</td>";
-                        echo "</tr>";
+    <div class = 'row'>
+        <div class = 'col col-sm-9'>
+            <table class = 'table table-hover'>
+                    <tr class = 'table-primary'>
+                        <td>ID</td>
+                        <td>Category's Name</td>
+                        <td>Description</td>
+                        <td>Edit</td>
+                        <td>Delete</td>
+                    </tr>
+                <tbody>
+                    <?php
+                    if ($list != false){
+                        while ($row = mysqli_fetch_object($list)){
+                            echo "<tr>";
+                            echo "<td>".$row->id."</td>";
+                            echo "<td>".$row->name."</td>";
+                            echo "<td>".$row->description."</td>";
+                            echo "</tr>";
+                        }
                     }
-                }
-                ?>
-            </tbody>
-        </table>
+                    ?>
+                </tbody>
+            </table>
+        </div>
+        <div class = 'col col-sm-3'>
+        Create new Categoy
+        
+        </div>
     </div>
+    </div>
+
 </body>
 </html>

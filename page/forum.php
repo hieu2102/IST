@@ -40,9 +40,7 @@ while ($row = mysqli_fetch_object($query)) {
     left join users on (users.id = posts.post_by)
     where topics.topic_cat = $row->id";
     $last_post = mysqli_query($conn, $postQuery);
-    if ($last_post == null){
-        $post = "none";
-    }else{
+    if ($last_post != null){
     $post = mysqli_fetch_object($last_post);
     } 
     echo "<table class = 'table table-hover'>";
