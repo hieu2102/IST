@@ -16,16 +16,12 @@ $query = mysqli_query($conn, $sql);
    <div class = 'row'>
         <?php
 while ($row = mysqli_fetch_object($query)) {
-    
     //get topic count
-    $topics = mysqli_query($conn, "select id from topics where topic_cat =$row->id");
+    $topics = mysqli_query($conn, "SELECT id from topics where topic_cat =$row->id");
     $topics_count = mysqli_num_rows($topics);
-    
-    //initialize variable
-    $posts_count;
 
     //get post count
-    $count_query = mysqli_query($conn, "select posts.id from posts left join topics on (topics.id = posts.post_topic) where topics.topic_cat = $row->id");
+    $count_query = mysqli_query($conn, "SELECT posts.id from posts left join topics on (topics.id = posts.post_topic) where topics.topic_cat = $row->id");
     if ($count_query == null){
         $posts_count = 0;
     }else{
@@ -33,7 +29,7 @@ while ($row = mysqli_fetch_object($query)) {
     }
 
     //get latest post
-    $postQuery = "select topics.subject as subject, 
+    $postQuery = "SELECT topics.subject as subject, 
     max(posts.date) as time, 
     users.username as poster from posts
     left join topics on (topics.id = posts.post_topic)
@@ -54,7 +50,7 @@ while ($row = mysqli_fetch_object($query)) {
                     <td><small>Post Count</small></td>
                 </thead>";
     echo "<tbody>
-                    <td>$row->description</td>
+                    <td><a href = 'index.php?page=category&ID=$row->id'><div>$row->description</div></a></td>
                     <td><div><h5>$post->subject</h5></div>
                         
                     <div><small>$post->poster</small></div>

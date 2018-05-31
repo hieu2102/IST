@@ -12,7 +12,6 @@ if ($rows == 0) {
     $_SESSION['message'] = alert_msg('danger', 'Invalid Email');
     header('location: login.php');
 } else {
-
     //get result of $query as an object
     $object = mysqli_fetch_object($query);
     //get hashed password
