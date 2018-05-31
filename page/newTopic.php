@@ -1,0 +1,3 @@
+<?
+$catID = $_GET['catID'];
+?>
