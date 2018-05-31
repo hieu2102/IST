@@ -5,7 +5,8 @@ $postQuery = mysqli_query($conn, "SELECT posts.id as postID,
                             users.username as username, users.id as userID
                             from posts
                             left join users on (users.id = posts.post_by)
-                            where posts.post_topic = '$topicID'");
+                            where posts.post_topic = '$topicID'
+                            order by posts.date asc");
 $i = 0;
 ?>
 
@@ -29,7 +30,8 @@ $i = 0;
                 </div>
                 <br><br>
             <?php } ?>
-        </div>
+       
         <a class = "btn btn-dark" href="index.php?page=newPost&topicID=<?=$topicID?>">New Post</a>
+        </div>
     </body>
 </html>
