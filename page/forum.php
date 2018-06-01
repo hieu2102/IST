@@ -1,5 +1,5 @@
 <?php
-$sql = "SELECT * FROM categories order by id";
+$sql = "SELECT * FROM categories where state = 'open' order by id";
 $query = mysqli_query($conn, $sql);
 ?>
 <!DOCTYPE html>

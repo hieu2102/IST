@@ -33,6 +33,9 @@ if ($_SESSION['level'] != 'admin'){
       <li class = "nav-item">
         <a class = "nav-link" href="index.php?page=banlist">Banlist</a>
       </li>
+      <li class = "nav-item">
+        <a class = "nav-link" href="index.php?page=archiveList">Archived Category</a>
+      </li>
     </ul>
     <a class = 'nav-link' href="../index.php" ><button class = 'btn btn-dark'>To Index</button></a>
       <a class="btn btn-primary" href ="../auth/logout.php">Log Out</a>

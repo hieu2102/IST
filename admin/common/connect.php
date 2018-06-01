@@ -10,7 +10,7 @@ if (!$conn){
     die ("Connection Failed");
 }
 
-function alert_msg($type,$string){
+function alert_msg(string $type, string $string){
     return "<div class = 'alert alert-".$type."' role = 'alert'>
     <p style = 'text-align:center'>"
             .$string.

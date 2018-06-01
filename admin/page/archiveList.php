@@ -2,7 +2,7 @@
 
 //show all categories
 $list = mysqli_query($conn, "SELECT id, name, description, state from categories
-                            where state !='archived' order by id asc ");
+                            where state ='archived' order by id asc ");
 ?>
 
 <!DOCTYPE html>
@@ -32,16 +32,11 @@ $list = mysqli_query($conn, "SELECT id, name, description, state from categories
                                 <td><?=$row->name?></td>
                                 <td><?=$row->description?></td>
                                 <td><a href="index.php?page=editCat&catID=<?=$row->id?>" class = 'btn btn-warning'>Edit</a></td>
-                                <td>
-                                <?php if ($row->state != 'archived'){ ?>
-                                <a href="index.php?page=archiveCat&catID=<?=$row->id?>" class = 'btn btn-danger'>Close</a>
-                                <?php } ?>
-                                </td>
+                                <td><a href="index.php?page=openCat&catID=<?=$row->id?>" class = 'btn btn-info'>Open</a></td>
                             </tr>
                     <?php } }?>
                 </tbody>
             </table>
             <br>
-            <a href="index.php?page=newCat" class = 'btn btn-light'>New Category</a>
 </body>
 </html>
