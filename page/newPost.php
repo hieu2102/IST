@@ -13,15 +13,16 @@ $userID = $_SESSION['id'];
 </head>
 <body>
 <br>
+<div class = 'container'>
     <h3>Post Content</h3>
-    <form action="index.php?page=postValidate">
+    <form method = "POST" action="index.php?page=postValidate">
 
-    <input type='textarea' name="content" id="editor">
+    <textarea name="content" id="editor" rows='10'></textarea>
     <br>
     <input type="hidden" name = 'topicID' value = '<?=$topicID?>'>
     <input type="hidden" name = 'userID' value = '<?=$userID?>'>
     <input type="submit" class = 'btn btn-dark' name = 'submit' value = 'Submit'>
-    
+</div>
     <script>
         ClassicEditor
             .create( document.querySelector( '#editor' ) )

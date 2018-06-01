@@ -26,7 +26,9 @@ $i = 0;
                 </div>
                 <br>
                 <div class = 'row'>
-                    <div class = 'col col-md-12'><?=$row->content?></div>
+                    <div class = 'col col-md-12'>
+                    <p><?=$row->content?></p>
+                    </div>
                 </div>
                 <br><br>
             <?php } ?>
