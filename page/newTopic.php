@@ -20,6 +20,7 @@ $userID = $_SESSION['id'];
     <h3>Post Content</h3>
     <textarea name="content" id="editor" cols="30" rows="10"></textarea>
     <br>
+    <input type="hidden" name = 'catID' value = '<?=$catID?>'>
     <input type="hidden" name = 'userID' value = '<?=$userID?>'>
     <input type="submit" class = 'btn btn-dark' name = 'submit' value = 'Submit'>
     </form>

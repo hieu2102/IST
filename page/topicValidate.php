@@ -11,6 +11,8 @@ if (strlen($subject) < 20) {
     $_SESSION['message'] = alert_msg('danger', 'Post too short');
     header("location:" . $_SERVER['HTTP_REFERER']);
 } else {
+
+    $subject = mysqli_real_escape_string($conn, $subject);
     $content = mysqli_real_escape_string($conn, $content);
     //wrapping content
     $content = wordwrap($content, 100, "\n", true);
@@ -20,13 +22,12 @@ if (strlen($subject) < 20) {
     mysqli_query($conn, $topicQuery);
 
     //get topic ID
-    $topic = mysqli_query($conn, "SELECT max(id) as cID from topics where topic_by = '$userID' and topic_cat = '$catID'");
-    $topicID = mysqli_fetch_object($topic);
-
+    $topic = mysqli_query($conn, "SELECT id from topics where topic_by = '$userID' and topic_cat = '$catID' order by id desc LIMIT 1");
+    $object = mysqli_fetch_object($topic);
+    $topicID = $object->id;
     //create first post
-    mysqli_query($conn, "INSERT INTO posts (content, post_by, post_topic) values ('$content', '$userID', '$topicID->cID')");
-
-    $_SESSION['message'] = alert_msg('success', 'Topic Created' . $topicID->cID);
-    header('location: index.php?page=category&ID={{$catID}}');
+    mysqli_query($conn, "INSERT INTO posts (content, post_by, post_topic) values ('$content', '$userID', '$topicID')");
+    $_SESSION['message'] = alert_msg('success', "Topic Created");
+    header('location: index.php?page=category&ID='.$catID);
 
 }

@@ -13,10 +13,11 @@ $query = mysqli_query($conn, $sql_topics);
 <html>
 <head><title><?=$cat->name?></title></head>
 <body>
+<table class = 'table table-hover'> 
     <?php while ($topics = mysqli_fetch_object($query)){
         $postQuery = mysqli_query($conn, "SELECT max(date) as lpost from posts where post_topic = '$topics->id'");
 
-        $count_query = mysqli_query($conn, "SELECT posts.id from posts left join topics on (topics.id = posts.post_topic) where topics.topic_cat = $id");
+        $count_query = mysqli_query($conn, "SELECT posts.id from posts left join topics on (topics.id = posts.post_topic) where topics.topic_cat = $id and topics.id = '$topics->id' ");
         if ($count_query == null){
             $posts_count = 0;
         }else{
@@ -24,7 +25,7 @@ $query = mysqli_query($conn, $sql_topics);
         }
     
         ?>
-        <table class = 'table table-hover'>
+        
         <thead>
             <td>Subject</td>
             <td>Post Count</td>
@@ -33,7 +34,7 @@ $query = mysqli_query($conn, $sql_topics);
         <tbody>
             <td>
                 <a href="index.php?page=topics&topicID=<?=$topics->id?>">
-                    <div><h2><?=$topics->subject;?></h2></div>
+                    <div><h5><?=$topics->subject;?></h5></div>
                     <div><small>By: <?=$topics->starter?></small></div>
                     <div><small>On: <?=$topics->time?></small></div>
                 </a>
@@ -42,8 +43,9 @@ $query = mysqli_query($conn, $sql_topics);
             <td><?php if($last_post = $postQuery->fetch_assoc()){
                 echo $last_post['lpost'];}?></td>
         </tbody>
-        </table>
     <?php } ?>
+    </table>
+
 <br><br>
    <a class = "btn btn-dark" href="index.php?page=newTopic&catID=<?=$id?>">New Topic</a>
 
