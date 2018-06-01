@@ -41,15 +41,15 @@ $list = mysqli_query(
                         <td><?=$row->level?></td>
                         <td>
                         <?php if ($row->level !='banned'){ ?>
-                        <a href="index.php?page=banUser&userID=<?=$row->id?>" class = 'btn btn-danger'>Ban</a></td>
+                        <a href="index.php?function=banUser&userID=<?=$row->id?>" class = 'btn btn-danger'>Ban</a></td>
                         <?php } ?>
                         <td> 
                         <?php if ($row->level =='normal'){ ?>
-                            <a href="index.php?page=setAdmin&userID=<?=$row->id?>" class = 'btn btn-primary'>Set Admin</a>
+                            <a href="index.php?function=setAdmin&userID=<?=$row->id?>" class = 'btn btn-primary'>Set Admin</a>
                         <?php } ?>
 
                         <?php if ($row->level == 'admin'){ ?>
-                            <a href="index.php?page=unsetAdmin&userID=<?=$row->id?>" class = 'btn btn-info'>Unset Admin</a>
+                            <a href="index.php?function=unsetAdmin&userID=<?=$row->id?>" class = 'btn btn-info'>Unset Admin</a>
                         <?php } ?>
                         </td>
                     </tr>

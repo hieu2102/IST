@@ -34,7 +34,7 @@ if (!isset($_SESSION['login_user'])){
       </li>
     </ul>
         <?php if ($_SESSION['level'] =='admin'){ ?>
-          <a class = 'nav-link' href='./admin/index.php'> <button class = 'btn btn-light'>Admin Panel</button></a>
+          <a class = 'nav-link' href='./admin/index.php?page=usersManage'> <button class = 'btn btn-light'>Admin Panel</button></a>
         <?php }?>
     <form class="form-inline my-2 my-lg-0">
       <a class="btn btn-primary" href ="./auth/logout.php">Log Out</a>

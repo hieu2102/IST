@@ -25,9 +25,12 @@ if (isset($_SESSION['message'])) {
 if (isset($_GET['page'])) {
     $page = $_GET['page'];
     include 'page/'. $page.'.php';
-}else{
-    include 'page/usersManage.php';
 }
+if (isset($_GET['function'])){
+    $function = $_GET['function'];
+    include 'function/'.$function.'.php';
+}
+
 
 ?>
 </div>

@@ -16,7 +16,7 @@ $category = mysqli_fetch_object($query);
 <div class = 'card'>
 <div class = 'card-header'> <p class = 'text-dark'>Edit Category</p></div>
 <div class = 'card-body'>
-    <form method = "POST" action="index.php?page=updateCat">
+    <form method = "POST" action="index.php?function=updateCat">
     <div class = 'form-group row'>
     <label for="catName" class = 'text-dark'>Category Name</label>
     <input type="text" class = 'form-control' name = 'catName' value = '<?=$category->name?>' required>

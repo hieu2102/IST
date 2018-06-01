@@ -31,8 +31,8 @@ $list = mysqli_query($conn, "SELECT id, name, description, state from categories
                                 <td><?=$row->id?></td>
                                 <td><?=$row->name?></td>
                                 <td><?=$row->description?></td>
-                                <td><a href="index.php?page=editCat&catID=<?=$row->id?>" class = 'btn btn-warning'>Edit</a></td>
-                                <td><a href="index.php?page=openCat&catID=<?=$row->id?>" class = 'btn btn-info'>Open</a></td>
+                                <td><a href="index.php?function=editCat&catID=<?=$row->id?>" class = 'btn btn-warning'>Edit</a></td>
+                                <td><a href="index.php?function=openCat&catID=<?=$row->id?>" class = 'btn btn-info'>Open</a></td>
                             </tr>
                     <?php } }?>
                 </tbody>

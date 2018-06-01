@@ -36,7 +36,7 @@ $list = mysqli_query(
                         <td><?=$row->id?></td>
                         <td><?=$row->username?></td>
                         <td><?=$row->email?></td>
-                        <td><a href="index.php?page=unbanUser&userID=<?=$row->id?>" class = 'btn btn-light'>Unban</a></td>
+                        <td><a href="index.php?function=unbanUser&userID=<?=$row->id?>" class = 'btn btn-light'>Unban</a></td>
                     </tr>
            <?php }
             ?>

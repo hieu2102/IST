@@ -31,10 +31,10 @@ $list = mysqli_query($conn, "SELECT id, name, description, state from categories
                                 <td><?=$row->id?></td>
                                 <td><?=$row->name?></td>
                                 <td><?=$row->description?></td>
-                                <td><a href="index.php?page=editCat&catID=<?=$row->id?>" class = 'btn btn-warning'>Edit</a></td>
+                                <td><a href="index.php?function=editCat&catID=<?=$row->id?>" class = 'btn btn-warning'>Edit</a></td>
                                 <td>
                                 <?php if ($row->state != 'archived'){ ?>
-                                <a href="index.php?page=archiveCat&catID=<?=$row->id?>" class = 'btn btn-danger'>Close</a>
+                                <a href="index.php?function=archiveCat&catID=<?=$row->id?>" class = 'btn btn-danger'>Close</a>
                                 <?php } ?>
                                 </td>
                             </tr>
