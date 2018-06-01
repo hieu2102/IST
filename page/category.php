@@ -13,7 +13,6 @@ $query = mysqli_query($conn, $sql_topics);
 <html>
 <head><title><?=$cat->name?></title></head>
 <body>
-<div class = 'container'>
     <?php while ($topics = mysqli_fetch_object($query)){
         $postQuery = mysqli_query($conn, "SELECT max(date) as lpost from posts where post_topic = '$topics->id'");
 
@@ -48,6 +47,5 @@ $query = mysqli_query($conn, $sql_topics);
 <br><br>
    <a class = "btn btn-dark" href="index.php?page=newTopic&catID=<?=$id?>">New Topic</a>
 
-    </div>
 </body>
 </html>

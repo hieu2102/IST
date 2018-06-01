@@ -7,7 +7,7 @@ include 'common/navbar.php';
     <head>
     </head>
     <body>
-
+    <div class = 'container'>
         <?php
             if (isset($_SESSION['message'])){
                 echo "<div id = 'message'>".$_SESSION['message']."</div>";
@@ -23,5 +23,6 @@ include 'common/navbar.php';
               
             
         ?>
+        </div>
     </body>
 </html>

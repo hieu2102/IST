@@ -13,7 +13,6 @@ $i = 0;
 <html>
     <head><title>Topic</title></head>
     <body>
-        <div class = 'container'>
         <br>
             <?php
                 while ($row = mysqli_fetch_object($postQuery)){ ?>
@@ -34,6 +33,5 @@ $i = 0;
             <?php } ?>
        
         <a class = "btn btn-dark" href="index.php?page=newPost&topicID=<?=$topicID?>">New Post</a>
-        </div>
     </body>
 </html>

@@ -1,4 +1,4 @@
-<?
+<?php
 $catID = $_GET['catID'];
 $userID = $_SESSION['id'];
 ?>
@@ -12,8 +12,7 @@ $userID = $_SESSION['id'];
     <script src="https://cdn.ckeditor.com/ckeditor5/10.0.1/classic/ckeditor.js"></script>
 </head>
 <body>
-    <div class = 'container'>
-    <form method = 'POST' action="index.php?page=topicValidate"></form>
+    <form method = 'POST' action="index.php?page=topicValidate">
     <br>
     <h3>Topic Subject</h3>
     <input type="text" name = 'subject' class = 'form-control' placeholder = 'Input Topic Subject'>
@@ -23,7 +22,8 @@ $userID = $_SESSION['id'];
     <br>
     <input type="hidden" name = 'userID' value = '<?=$userID?>'>
     <input type="submit" class = 'btn btn-dark' name = 'submit' value = 'Submit'>
-    </div>
+    </form>
+    <!-- ckeditor script -->
     <script>
         ClassicEditor
             .create( document.querySelector( '#editor'))
