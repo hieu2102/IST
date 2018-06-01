@@ -1,6 +1,8 @@
 <?php
 $userID = $_POST['userID'];
+checkID($userID);
 $catID = $_POST['catID'];
+checkID($userID);
 $subject = $_POST['subject'];
 $content = $_POST['content'];
 
@@ -14,7 +16,7 @@ if (strlen($subject) < 20) {
 
     $subject = mysqli_real_escape_string($conn, $subject);
     $content = mysqli_real_escape_string($conn, $content);
-    //wrapping content
+    //wrapping text for display
     $content = wordwrap($content, 100, "\n", true);
 
     //create new topic

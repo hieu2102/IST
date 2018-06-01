@@ -12,10 +12,6 @@ function checkID($id){
     }
 }
 
-//escape string
-function escape(string $string){
-    return mysqli_real_escape_string($conn, $string);
-}
 ?>
 
 
