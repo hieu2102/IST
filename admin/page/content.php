@@ -11,13 +11,10 @@ $list = mysqli_query($conn, "SELECT id, name, description from categories
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Content Managing</title>
+    <title>Content Manage</title>
 </head>
 <body>
-    <div class = 'container'>
     <br><br>
-    <div class = 'row'>
-        <div class = 'col col-sm-9'>
             <table class = 'table table-hover'>
                     <tr class = 'table-primary'>
                         <td>ID</td>
@@ -29,24 +26,18 @@ $list = mysqli_query($conn, "SELECT id, name, description from categories
                 <tbody>
                     <?php
                     if ($list != false){
-                        while ($row = mysqli_fetch_object($list)){
-                            echo "<tr>";
-                            echo "<td>".$row->id."</td>";
-                            echo "<td>".$row->name."</td>";
-                            echo "<td>".$row->description."</td>";
-                            echo "</tr>";
-                        }
-                    }
-                    ?>
+                        while ($row = mysqli_fetch_object($list)){ ?>
+                            <tr>
+                                <td><?=$row->id?></td>
+                                <td><?=$row->name?></td>
+                                <td><?=$row->description?></td>
+                                <td><a href="index.php?page=editCat&catID=<?=$row->id?>" class = 'btn btn-warning'>Edit</a></td>
+                                <td><a href="index.php?page=deleteCat&catID=<?=$row->id?>" class = 'btn btn-danger'>Delete</a></td>
+                            </tr>
+                    <?php } }?>
                 </tbody>
             </table>
-        </div>
-        <div class = 'col col-sm-3'>
-        Create new Categoy
-        
-        </div>
-    </div>
-    </div>
-
+            <br>
+            <a href="index.php?page=newCat" class = 'btn btn-light'>New Category</a>
 </body>
 </html>

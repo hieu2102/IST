@@ -1,5 +1,8 @@
 <?php
 include 'common/adminNav.php';
+$USER = $_SESSION['id'];
+$USER_LEVEL = mysqli_fetch_object(mysqli_query($conn, "SELECT level from users where id ='$USER'"));
+$_SESSION['level'] = $USER_LEVEL->level; 
 ?>
 
 
@@ -9,9 +12,10 @@ include 'common/adminNav.php';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Admin Panel</title>
 </head>
-<body>
+<body class="p-3 mb-2 bg-dark text-white">
+
+<div class = 'container'>
 <?php
 if (isset($_SESSION['message'])) {
     echo "<div id = 'message'>" . $_SESSION['message'] . "</div>";
@@ -21,8 +25,11 @@ if (isset($_SESSION['message'])) {
 if (isset($_GET['page'])) {
     $page = $_GET['page'];
     include 'page/'. $page.'.php';
+}else{
+    include 'page/usersManage.php';
 }
 
 ?>
+</div>
 </body>
 </html>

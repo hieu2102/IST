@@ -25,13 +25,16 @@ if ($_SESSION['level'] != 'admin'){
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
-        <a class="nav-link" href="index.php?page=users">Users List</a>
+        <a class="nav-link" href="index.php?page=usersManage">Users List</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="index.php?page=content">Content Manage</a>
       </li>
+      <li class = "nav-item">
+        <a class = "nav-link" href="index.php?page=banlist">Banlist</a>
+      </li>
     </ul>
-    <a class = 'nav-link' href="../index.php" ><button class = 'btn btn-light'>To Index</button></a>
+    <a class = 'nav-link' href="../index.php" ><button class = 'btn btn-dark'>To Index</button></a>
       <a class="btn btn-primary" href ="../auth/logout.php">Log Out</a>
   </div>
 </nav>

@@ -1,11 +1,12 @@
 <?php
 include 'common/navbar.php';
+$USER = $_SESSION['id'];
+$USER_LEVEL = mysqli_fetch_object(mysqli_query($conn, "SELECT level from users where id ='$USER'"));
+$_SESSION['level'] = $USER_LEVEL->level;
 ?>
 
 <!DOCTYPE html>
 <html>
-    <head>
-    </head>
     <body>
     <div class = 'container'>
         <?php

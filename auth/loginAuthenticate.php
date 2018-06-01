@@ -20,7 +20,6 @@ if ($rows == 0) {
     if (password_verify($password, $hashedP)) {
         $_SESSION['login_user'] = $email;
         $_SESSION['id'] = $object->id;
-        $_SESSION['level'] = $object->level;
         $_SESSION['message'] = alert_msg('success', 'Logged In');
         header('location: ../index.php');
     } else {
