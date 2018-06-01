@@ -20,7 +20,7 @@ if (!isset($_SESSION['login_user'])){
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand" href="index.php">Forum</a>
+  <a class="navbar-brand" href="index.php?page=forum">Forum</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -30,7 +30,10 @@ if (!isset($_SESSION['login_user'])){
         <a class="nav-link" href="index.php?page=users&userID=<?=$_SESSION['id']?>">Profile</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link " href="index.php?page=search">Search</a>
+        <form class = 'form-inline' method = "POST" action="index.php?function=search">
+          <input type="number" class = 'form-control' name = 'queryID' placeholder = 'Search User ID' required>
+          <input type="submit" class = 'btn btn-info' name = 'submit' value = 'Search'>
+        </form>
       </li>
     </ul>
         <?php if ($_SESSION['level'] =='admin'){ ?>

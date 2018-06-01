@@ -18,9 +18,11 @@ $_SESSION['level'] = $USER_LEVEL->level;
             if(isset($_GET['page'])){
                 $page=$_GET['page'];
                 include 'page/'.$page.'.php';
-              }else{
-                  include 'page/forum.php';
               }
+            if(isset($_GET['function'])){
+                $function = $_GET['function'];
+                include 'function/'.$function.'.php';
+            };
               
             
         ?>

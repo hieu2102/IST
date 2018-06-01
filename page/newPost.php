@@ -15,7 +15,7 @@ $userID = $_SESSION['id'];
 <br>
 <div class = 'container'>
     <h3>Post Content</h3>
-    <form method = "POST" action="index.php?page=postValidate">
+    <form method = "POST" action="index.php?function=postValidate">
 
     <textarea name="content" id="editor" rows='10'></textarea>
     <br>

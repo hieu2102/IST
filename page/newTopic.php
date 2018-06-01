@@ -12,7 +12,7 @@ $userID = $_SESSION['id'];
     <script src="https://cdn.ckeditor.com/ckeditor5/10.0.1/classic/ckeditor.js"></script>
 </head>
 <body>
-    <form method = 'POST' action="index.php?page=topicValidate">
+    <form method = 'POST' action="index.php?function=topicValidate">
     <br>
     <h3>Topic Subject</h3>
     <input type="text" name = 'subject' class = 'form-control' placeholder = 'Input Topic Subject'>

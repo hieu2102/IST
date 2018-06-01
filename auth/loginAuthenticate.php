@@ -21,7 +21,7 @@ if ($rows == 0) {
         $_SESSION['login_user'] = $email;
         $_SESSION['id'] = $object->id;
         $_SESSION['message'] = alert_msg('success', 'Logged In');
-        header('location: ../index.php');
+        header('location: ../index.php?page=forum');
     } else {
 
         $_SESSION['message'] = alert_msg('danger', 'Wrong Password');
