@@ -11,11 +11,17 @@ $query = mysqli_query($conn, $sql);
     <title>Forum</title>
 </head>
 <body>
-    <div class = 'container'>
-    <br><br>
-   <div class = 'row'>
-        <?php
-while ($row = mysqli_fetch_object($query)) {
+<br><br>
+<table class = 'table table-hover'>
+        <thead class = 'table-primary'>
+            <td><small>Category</small></td>
+            <td><small>Latest Post</small></td>
+            <td><small>Topics Count</small></td>
+            <td><small>Post Count</small></td>
+        </thead>
+
+    <?php
+    while ($row = mysqli_fetch_object($query)) {
     //get topic count
     $topics = mysqli_query($conn, "SELECT id from topics where topic_cat =$row->id");
     $topics_count = mysqli_num_rows($topics);
@@ -31,6 +37,7 @@ while ($row = mysqli_fetch_object($query)) {
     //get latest post
     $postQuery = "SELECT topics.subject as subject,
     max(posts.date) as time,
+    topics.id as topicID,
     users.username as poster from posts
     left join topics on (topics.id = posts.post_topic)
     left join users on (users.id = posts.post_by)
@@ -39,26 +46,21 @@ while ($row = mysqli_fetch_object($query)) {
     if ($last_post != null) {
         $post = mysqli_fetch_object($last_post);
     }?>
-    <table class = 'table table-hover'>
-        <thead class = 'table-primary'>
-            <td colspan='4'><?=$row->name?></td>
-        </thead>
-        <thead>
-            <td style = 'width:45%'><small>Description</small></td>
-            <td style = 'width:30%'><small>Latest Post</small></td>
-            <td><small>Topics Count</small></td>
-            <td><small>Post Count</small></td>
-        </thead>
+
         <tbody>
             <td>
                 <a href = 'index.php?page=category&ID=<?=$row->id?>'>
-                    <div><?=$row->description?></div>
+                <div><h5><?=$row->name?></h5></div>
+                <div class = 'text-dark'><small><?=$row->description?></small></div>
+
                 </a>
             </td>
             <td>
-                <div><h5><?=$post->subject?></h5></div>
-                <div><small><?=$post->poster?></small></div>
-                <div><small><?=$post->time?></small></div>
+            <a href="index.php?page=topics&topicID=<?=$post->topicID?>">
+                <div><h6><?=$post->subject?></h6></div>
+                <div class = 'text-muted'><small><?=$post->poster?></small></div>
+                <div class = 'text-muted'><small><?=$post->time?></small></div>
+            </a>
             </td>
                 <td><?=$topics_count?></td>
                 <td><?=$posts_count?></td>
