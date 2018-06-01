@@ -22,46 +22,48 @@ while ($row = mysqli_fetch_object($query)) {
 
     //get post count
     $count_query = mysqli_query($conn, "SELECT posts.id from posts left join topics on (topics.id = posts.post_topic) where topics.topic_cat = $row->id");
-    if ($count_query == null){
+    if ($count_query == null) {
         $posts_count = 0;
-    }else{
+    } else {
         $posts_count = mysqli_num_rows($count_query);
     }
 
     //get latest post
-    $postQuery = "SELECT topics.subject as subject, 
-    max(posts.date) as time, 
+    $postQuery = "SELECT topics.subject as subject,
+    max(posts.date) as time,
     users.username as poster from posts
     left join topics on (topics.id = posts.post_topic)
     left join users on (users.id = posts.post_by)
     where topics.topic_cat = $row->id";
     $last_post = mysqli_query($conn, $postQuery);
-    if ($last_post != null){
-    $post = mysqli_fetch_object($last_post);
-    } 
-    echo "<table class = 'table table-hover'>";
-    echo "<thead class = 'table-primary'>
-            <td colspan='4'>$row->name</td>
-        </thead>";
-    echo "<thead>
-                    <td style = 'width:45%'><small>Description</small></td>
-                    <td style = 'width:30%'><small>Latest Post</small></td>
-                    <td><small>Topics Count</small></td>
-                    <td><small>Post Count</small></td>
-                </thead>";
-    echo "<tbody>
-                    <td><a href = 'index.php?page=category&ID=$row->id'><div>$row->description</div></a></td>
-                    <td><div><h5>$post->subject</h5></div>
-                        
-                    <div><small>$post->poster</small></div>
-                    
-                    <div><small>$post->time</small></div>
-                    </td>
-                    <td>$topics_count</td>
-                    <td>$posts_count</td>
-                </tbody>";
-}
-?>
+    if ($last_post != null) {
+        $post = mysqli_fetch_object($last_post);
+    }?>
+    <table class = 'table table-hover'>
+        <thead class = 'table-primary'>
+            <td colspan='4'><?=$row->name?></td>
+        </thead>
+        <thead>
+            <td style = 'width:45%'><small>Description</small></td>
+            <td style = 'width:30%'><small>Latest Post</small></td>
+            <td><small>Topics Count</small></td>
+            <td><small>Post Count</small></td>
+        </thead>
+        <tbody>
+            <td>
+                <a href = 'index.php?page=category&ID=<?=$row->id?>'>
+                    <div><?=$row->description?></div>
+                </a>
+            </td>
+            <td>
+                <div><h5><?=$post->subject?></h5></div>
+                <div><small><?=$post->poster?></small></div>
+                <div><small><?=$post->time?></small></div>
+            </td>
+                <td><?=$topics_count?></td>
+                <td><?=$posts_count?></td>
+        </tbody>
+<?php }?>
    </div>
     </div>
 </body>
