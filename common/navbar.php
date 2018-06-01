@@ -27,7 +27,7 @@ if (!isset($_SESSION['login_user'])){
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
-        <a class="nav-link" href="index.php?page=users&userID=<?=$_SESSION['id']?>">Profile</a>
+        <a class="nav-link" href="index.php?page=profile&userID=<?=$_SESSION['id']?>">Profile</a>
       </li>
       <li class="nav-item">
         <form class = 'form-inline' method = "POST" action="index.php?function=search">

@@ -1,5 +1,6 @@
 <?php
 $catID = $_GET['catID'];
+checkID($catID);
 $query = mysqli_query($conn, "SELECT * from categories where id = '$catID'");
 $category = mysqli_fetch_object($query);
 ?>
@@ -16,7 +17,7 @@ $category = mysqli_fetch_object($query);
 <div class = 'card'>
 <div class = 'card-header'> <p class = 'text-dark'>Edit Category</p></div>
 <div class = 'card-body'>
-    <form method = "POST" action="index.php?function=updateCat">
+    <form method = "POST" action="index.php?function=cat-update">
     <div class = 'form-group row'>
     <label for="catName" class = 'text-dark'>Category Name</label>
     <input type="text" class = 'form-control' name = 'catName' value = '<?=$category->name?>' required>

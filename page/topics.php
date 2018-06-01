@@ -32,6 +32,6 @@ $i = 0;
                 <br><br>
             <?php } ?>
        
-        <a class = "btn btn-dark" href="index.php?page=newPost&topicID=<?=$topicID?>">New Post</a>
+        <a class = "btn btn-dark" href="index.php?page=post-create&topicID=<?=$topicID?>">New Post</a>
     </body>
 </html>

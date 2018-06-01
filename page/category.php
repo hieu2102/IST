@@ -47,7 +47,7 @@ $query = mysqli_query($conn, $sql_topics);
     </table>
 
 <br><br>
-   <a class = "btn btn-dark" href="index.php?page=newTopic&catID=<?=$id?>">New Topic</a>
+   <a class = "btn btn-dark" href="index.php?page=topic-create&catID=<?=$id?>">New Topic</a>
 
 </body>
 </html>

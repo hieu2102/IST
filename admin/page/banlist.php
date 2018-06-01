@@ -15,7 +15,7 @@ $list = mysqli_query(
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Users List</title>
+    <title>Ban List</title>
 </head>
 <body>
 
@@ -36,7 +36,7 @@ $list = mysqli_query(
                         <td><?=$row->id?></td>
                         <td><?=$row->username?></td>
                         <td><?=$row->email?></td>
-                        <td><a href="index.php?function=unbanUser&userID=<?=$row->id?>" class = 'btn btn-light'>Unban</a></td>
+                        <td><a href="index.php?function=user-unban&userID=<?=$row->id?>" class = 'btn btn-light'>Unban</a></td>
                     </tr>
            <?php }
             ?>

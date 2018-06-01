@@ -11,7 +11,7 @@ $list = mysqli_query($conn, "SELECT id, name, description, state from categories
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Content Manage</title>
+    <title>Archive Manage</title>
 </head>
 <body>
     <br><br>
@@ -21,7 +21,8 @@ $list = mysqli_query($conn, "SELECT id, name, description, state from categories
                         <td>Category's Name</td>
                         <td>Description</td>
                         <td>Edit</td>
-                        <td>Close</td>
+                        <td>Delete</td>
+                        <td>Open</td>
                     </tr>
                 <tbody>
                     <?php
@@ -31,8 +32,9 @@ $list = mysqli_query($conn, "SELECT id, name, description, state from categories
                                 <td><?=$row->id?></td>
                                 <td><?=$row->name?></td>
                                 <td><?=$row->description?></td>
-                                <td><a href="index.php?function=editCat&catID=<?=$row->id?>" class = 'btn btn-warning'>Edit</a></td>
-                                <td><a href="index.php?function=openCat&catID=<?=$row->id?>" class = 'btn btn-info'>Open</a></td>
+                                <td><a href="index.php?function=cat-edit&catID=<?=$row->id?>" class = 'btn btn-warning'>Edit</a></td>
+                                <td><a href="index.php?function=cat-delete&catID=<?=$row->id?>" class = 'btn btn-danger'>Delete</a></td>
+                                <td><a href="index.php?function=cat-open&catID=<?=$row->id?>" class = 'btn btn-info'>Open</a></td>
                             </tr>
                     <?php } }?>
                 </tbody>
