@@ -1,6 +1,9 @@
 <?php
 $catID = $_GET['catID'];
-checkID($catID);
+if (!ctype_digit($catID)){
+    $_SESSION['message'] = alert_msg("danger", "Invalid ID");
+    header("location: index.php?page=userManage");
+}
 
 mysqli_query($conn, "DELETE from categories where id = '$catID'");
 

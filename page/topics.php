@@ -1,5 +1,6 @@
 <?php
 $topicID = $_GET['topicID'];
+checkID($topicID);
 $postQuery = mysqli_query($conn, "SELECT posts.id as postID, 
                             posts.date as time, posts.content as content, 
                             users.username as username, users.id as userID

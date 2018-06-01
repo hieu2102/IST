@@ -1,5 +1,6 @@
 <?php
 $id = $_GET['ID'];
+checkID($id);
 $cat = mysqli_fetch_object(mysqli_query($conn, "SELECT name from categories where id = '$id'"));
 $sql_topics = "SELECT topics.subject as subject,topics.id as id,  
                 topics.date as time, users.username as starter 
