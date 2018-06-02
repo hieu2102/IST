@@ -44,7 +44,11 @@ while ($row = mysqli_fetch_object($postQuery)) {?>
                 </div>
                 <div class = 'row'>
                     <div class = 'col col-md-2'>
-                        <a href="index.php?page=post-quote" class = 'btn btn-info'>Quote</a>
+                        <form method = "POST" action="index.php?page=post-create&topicID=<?=$topicID?>">
+                        <input type="hidden" name = "postQuote" value = "<?=$row->content?>">
+                        <input type="hidden" name="poster" value = "<?=$row->username?>">
+                        <input type="submit"  class = "btn btn-info" name = 'submit' value = "Quote">
+                        </form>
                     </div>
 
                     <?php if ($_SESSION['level'] == 'admin' || $_SESSION['id'] == $row->userID) {?>

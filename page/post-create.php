@@ -2,6 +2,10 @@
 $topicID = $_GET['topicID'];
 checkID($topicID);
 $userID = $_SESSION['id'];
+$quote = "";
+if (isset($_POST['postQuote'])){
+    $quote ="<blockquote>".$_POST['postQuote']."<small>@".$_POST['poster']."</small></blockquote>";
+};
 
 ?>
 
@@ -18,7 +22,7 @@ $userID = $_SESSION['id'];
     <h3>Post Content</h3>
     <form method = "POST" action="index.php?function=post-store">
 
-    <textarea name="content" id="editor" rows='10'></textarea>
+    <textarea name="content" id="editor" rows='10'><?=$quote?></textarea>
     <br>
     <input type="hidden" name = 'topicID' value = '<?=$topicID?>'>
     <input type="hidden" name = 'userID' value = '<?=$userID?>'>
