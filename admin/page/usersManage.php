@@ -41,15 +41,24 @@ $list = mysqli_query(
                         <td><?=$row->level?></td>
                         <td>
                         <?php if ($row->level !='banned'){ ?>
-                        <a href="index.php?function=user-ban&userID=<?=$row->id?>" class = 'btn btn-danger'>Ban</a></td>
+                        <form method = "POST" action="index.php?function=user-set-level&userID=<?=$row->id?>">
+                            <input type="hidden" name = 'level' value = "banned">
+                            <input type="submit" class = 'btn btn-danger' name = 'submit' value = "Ban" >
+                        </form>
                         <?php } ?>
                         <td> 
                         <?php if ($row->level =='normal'){ ?>
-                            <a href="index.php?function=user-setAdmin&userID=<?=$row->id?>" class = 'btn btn-primary'>Set Admin</a>
+                            <form method = "POST" action="index.php?function=user-set-level&userID=<?=$row->id?>">
+                            <input type="hidden" name = 'level' value = "admin">
+                            <input type="submit" class = 'btn btn-primary' name = 'submit' value = "Set Admin" >
+                            </form>
                         <?php } ?>
 
                         <?php if ($row->level == 'admin'){ ?>
-                            <a href="index.php?function=user-unsetAdmin&userID=<?=$row->id?>" class = 'btn btn-info'>Unset Admin</a>
+                            <form method = "POST" action="index.php?function=user-set-level&userID=<?=$row->id?>">
+                            <input type="hidden" name = 'level' value = "normal">
+                            <input type="submit" class = 'btn btn-info' name = 'submit' value = "Unset Admin" >
+                            </form>
                         <?php } ?>
                         </td>
                     </tr>

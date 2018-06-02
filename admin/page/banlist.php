@@ -36,7 +36,12 @@ $list = mysqli_query(
                         <td><?=$row->id?></td>
                         <td><?=$row->username?></td>
                         <td><?=$row->email?></td>
-                        <td><a href="index.php?function=user-unban&userID=<?=$row->id?>" class = 'btn btn-light'>Unban</a></td>
+                        <td>
+                            <form method = "POST" action="index.php?function=user-set-level&userID=<?=$row->id?>">
+                            <input type="hidden" name = 'level' value = "normal">
+                            <input type="submit" class = 'btn btn-primary' name = 'submit' value = "Unban" >
+                            </form>
+                        </td>
                     </tr>
            <?php }
             ?>
