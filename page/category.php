@@ -4,12 +4,12 @@ checkID($catID);
 $cat = mysqli_fetch_object(mysqli_query($conn, "SELECT name from categories where id = '$catID'"));
 $sql_topics = "SELECT topics.subject as subject,topics.id as id,
                 topics.date as time, users.username as starter,
+                users.id as userID,
                 topics.state as state
                 from topics
                 left join users on (users.id = topics.topic_by)
                 where topic_cat = '$catID' order by date desc";
 $query = mysqli_query($conn, $sql_topics);
-
 ?>
 
 <html>
@@ -52,7 +52,13 @@ $query = mysqli_query($conn, $sql_topics);
                 <?php if ($last_post = $postQuery->fetch_assoc()) {
         echo $last_post['lpost'];}?>
             </td>
-            <td>Edit</td>
+            <td>
+                <form method = "POST" action="index.php?page=topic-edit">
+                    <input type="hidden" name = "topicID" value = "<?=$topics->id?>">
+                    <input type="hidden" name = "userID" value = "<?=$topics->userID?>">
+                    <input type="submit" name = "submit" value = "Edit" class = 'btn btn-light'>
+                </form>
+            </td>
             <td><?=$topics->state?></td>
 
             <!-- admin option -->

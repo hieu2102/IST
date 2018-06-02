@@ -1,5 +1,12 @@
 <?php
-$topicID = $_POST['topicID']
+$topicID = $_POST['topicID'];
+checkID($topicID);
+$level = $_SESSION['level'];
+$starter = $_POST['userID'];
+if ($level != 'admin' || $_SESSION['id'] != $starter){
+    $_SESSION['message'] = alert_msg("danger", "Unauthorized Action");
+    header("location: index.php?page=forum");
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -15,8 +22,8 @@ $topicID = $_POST['topicID']
     <br>
     <h3>Topic Subject</h3>
     <input type="text" name = 'subject' class = 'form-control' placeholder = 'Input Topic Subject'>
-    
     <input type="hidden" name = 'topicID' value = '<?=$topicID?>'>
+    <br>
     <input type="submit" class = 'btn btn-dark' name = 'submit' value = 'Submit'>
     </form>
     <!-- ckeditor script -->
