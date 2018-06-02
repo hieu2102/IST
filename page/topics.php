@@ -1,15 +1,32 @@
 <?php
 $topicID = $_GET['topicID'];
 checkID($topicID);
+
+//pagination
+if (isset($_GET['pageno'])){
+    $pageno = $_GET['pageno'];
+    if ($pageno <=0){
+        $pageno = 1;
+    }
+}else{
+    $pageno = 1;
+}
+$record_per_page = 10;
+$offset = ($pageno -1)* $record_per_page;
+$total_records = mysqli_num_rows(mysqli_query($conn, "SELECT id from posts where post_topic = '$topicID'"));
+$total_page = ceil($total_records/ $record_per_page);
+
 $topic = mysqli_fetch_object(mysqli_query($conn, "SELECT state from topics where id = '$topicID'"));
-$postQuery = mysqli_query($conn, "SELECT posts.id as postID,
-                            posts.date as time, posts.content as content,
-                            users.username as username, users.id as userID
-                            from posts
-                            left join users on (users.id = posts.post_by)
-                            where posts.post_topic = '$topicID'
-                            order by posts.date asc");
-$i = 0;
+$sql = "SELECT posts.id as postID,
+posts.date as time, posts.content as content,
+users.username as username, users.id as userID
+from posts
+left join users on (users.id = posts.post_by)
+where posts.post_topic = '$topicID'
+order by posts.date asc
+limit ".$offset.", 10";
+$postQuery = mysqli_query($conn,$sql);
+$i = -10 + $pageno*10;
 ?>
 
 <html>
@@ -80,8 +97,18 @@ while ($row = mysqli_fetch_object($postQuery)) {?>
     </div>
 <?php }?>
 
-<br><br>
+<br>
+<br>
 <?php }?>
+<nav aria-label="Page navigation example">  
+  <ul class="pagination">
+    <li class="page-item"><a class="page-link" href="index.php?page=topics&topicID=<?=$catID?>&pageno=<?=$pageno-1?>">Previous</a></li>
+    <li class="page-item"><a class="page-link" href="index.php?page=topics&topicID=<?=$catID?>&pageno=1">1</a></li>
+    <li class="page-item"><a class="page-link" href="index.php?page=topics&topicID=<?=$catID?>&pageno=2">2</a></li>
+    <li class="page-item"><a class="page-link" href="index.php?page=topics&topicID=<?=$catID?>&pageno=3">3</a></li>
+    <li class="page-item"><a class="page-link" href="index.php?page=topics&topicID=<?=$catID?>&pageno=<?=$pageno+1?>">Next</a></li>
+  </ul>
+</nav>
         <?php if ($topic->state != 'closed') {?>
         <a class = "btn btn-dark" href="index.php?page=post-create&topicID=<?=$topicID?>">New Post</a>
          <?php }?>

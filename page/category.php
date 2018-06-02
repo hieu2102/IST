@@ -1,6 +1,21 @@
 <?php
 $catID = $_GET['catID'];
 checkID($catID);
+
+//pagination
+if (isset($_GET['pageno'])){
+    $pageno = $_GET['pageno'];
+    if ($pageno <=0){
+        $pageno = 1;
+    }
+}else{
+    $pageno = 1;
+}
+$record_per_page = 10;
+$offset = ($pageno -1)* $record_per_page;
+$total_records = mysqli_num_rows(mysqli_query($conn, "SELECT id from topics where topic_cat = '$catID'"));
+$total_page = ceil($total_records/ $record_per_page);
+
 $cat = mysqli_fetch_object(mysqli_query($conn, "SELECT name from categories where id = '$catID'"));
 $sql_topics = "SELECT topics.subject as subject,topics.id as id,
                 topics.date as time, users.username as starter,
@@ -8,8 +23,11 @@ $sql_topics = "SELECT topics.subject as subject,topics.id as id,
                 topics.state as state
                 from topics
                 left join users on (users.id = topics.topic_by)
-                where topic_cat = '$catID' order by date desc";
+                where topic_cat = '$catID' order by date desc
+                limit ".$offset.", 10";
 $query = mysqli_query($conn, $sql_topics);
+
+
 ?>
 
 <html>
@@ -41,7 +59,7 @@ $query = mysqli_query($conn, $sql_topics);
     ?>
         <tr>
             <td>
-                <a href="index.php?page=topics&topicID=<?=$topics->id?>">
+                <a href="index.php?page=topics&topicID=<?=$topics->id?>&pageno=1">
                     <div><h5><?=$topics->subject;?></h5></div>
                     <div><small class = 'text-muted'>By: <?=$topics->starter?></small></div>
                     <div><small class = 'text-muted'>On: <?=$topics->time?></small></div>
@@ -92,8 +110,17 @@ $query = mysqli_query($conn, $sql_topics);
     <?php }?>
     </tbody>
     </table>
-
-<br><br>
+<br>
+<nav aria-label="Page navigation example">  
+  <ul class="pagination">
+    <li class="page-item"><a class="page-link" href="index.php?page=category&catID=<?=$catID?>&pageno=<?=$pageno-1?>">Previous</a></li>
+    <li class="page-item"><a class="page-link" href="index.php?page=category&catID=<?=$catID?>&pageno=1">1</a></li>
+    <li class="page-item"><a class="page-link" href="index.php?page=category&catID=<?=$catID?>&pageno=2">2</a></li>
+    <li class="page-item"><a class="page-link" href="index.php?page=category&catID=<?=$catID?>&pageno=3">3</a></li>
+    <li class="page-item"><a class="page-link" href="index.php?page=category&catID=<?=$catID?>&pageno=<?=$pageno+1?>">Next</a></li>
+  </ul>
+</nav>
+<br>
    <a class = "btn btn-dark" href="index.php?page=topic-create&catID=<?=$id?>">New Topic</a>
 
 </body>
