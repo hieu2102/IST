@@ -6,8 +6,8 @@ checkID($userID);
 $subject = $_POST['subject'];
 $content = $_POST['content'];
 
-if (strlen(strip_tags($subject)) < 20 || strlen(strip_tags($subject))>100) {
-    $_SESSION['message'] = alert_msg('danger', 'Subject length must be within 20-100 characters');
+if (strlen(strip_tags($subject)) < 20 || strlen(strip_tags($subject))>200) {
+    $_SESSION['message'] = alert_msg('danger', 'Subject length must be within 20-200 characters');
     header("location:" . $_SERVER['HTTP_REFERER']);
 } elseif (strlen(strip_tags($content)) < 20) {
     $_SESSION['message'] = alert_msg('danger', 'Post too short');

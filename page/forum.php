@@ -49,7 +49,7 @@ $query = mysqli_query($conn, $sql);
 
         <tbody>
             <td>
-                <a href = 'index.php?page=category&ID=<?=$row->id?>'>
+                <a href = 'index.php?page=category&catID=<?=$row->id?>'>
                 <div><h5><?=$row->name?></h5></div>
                 <div class = 'text-dark'><small><?=$row->description?></small></div>
 

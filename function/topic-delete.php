@@ -8,4 +8,4 @@ if ($_SESSION['level'] != 'admin'){
 //only admin can delete 
   mysqli_query($conn, "DELETE from topics where id = '$topicID'");
     $_SESSION['message'] = alert_msg('success', 'Topic Deleted');
-    header("location:index.php?page=category&ID=".$catID);
+    header("location:index.php?page=category&catID=".$catID);
