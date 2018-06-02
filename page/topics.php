@@ -100,13 +100,13 @@ while ($row = mysqli_fetch_object($postQuery)) {?>
 <br>
 <br>
 <?php }?>
-<nav aria-label="Page navigation example">  
+<nav>  
   <ul class="pagination">
-    <li class="page-item"><a class="page-link" href="index.php?page=topics&topicID=<?=$catID?>&pageno=<?=$pageno-1?>">Previous</a></li>
-    <li class="page-item"><a class="page-link" href="index.php?page=topics&topicID=<?=$catID?>&pageno=1">1</a></li>
-    <li class="page-item"><a class="page-link" href="index.php?page=topics&topicID=<?=$catID?>&pageno=2">2</a></li>
-    <li class="page-item"><a class="page-link" href="index.php?page=topics&topicID=<?=$catID?>&pageno=3">3</a></li>
-    <li class="page-item"><a class="page-link" href="index.php?page=topics&topicID=<?=$catID?>&pageno=<?=$pageno+1?>">Next</a></li>
+    <li><a class = 'page-link' href="index.php?page=topics&topicID=<?=$topicID?>&pageno=<?=$pageno-1?>">Previous</a></li>
+    <li class="page-item"><a class="page-link" href="index.php?page=topics&topicID=<?=$topicID?>&pageno=1">1</a></li>
+    <li class="page-item"><a class="page-link" href="index.php?page=topics&topicID=<?=$topicID?>&pageno=2">2</a></li>
+    <li class="page-item"><a class="page-link" href="index.php?page=topics&topicID=<?=$topicID?>&pageno=3">3</a></li>
+    <li class="page-item"><a class="page-link" href="index.php?page=topics&topicID=<?=$topicID?>&pageno=<?=$pageno+1?>">Next</a></li>
   </ul>
 </nav>
         <?php if ($topic->state != 'closed') {?>
