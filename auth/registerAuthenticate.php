@@ -38,6 +38,8 @@ if (strlen($password) < 8) {
                     //hash password using bcrypt
                     $hashedP = password_hash($password, PASSWORD_BCRYPT);
                     //store input data to database
+                    $name = mysqli_real_escape_string($conn, $name);
+                    $email = mysqli_real_escape_string($conn, $email);
                     $insert = mysqli_query($conn, "INSERT INTO users (id, username, password, email) VALUES ('$id', '$name', '$hashedP', '$email')");
                     if ($insert == false) {
                         $_SESSION['message'] = alert_msg('danger', 'Duplicate Record');
