@@ -1,6 +1,5 @@
 <?php
 $catID = $_GET['catID'];
-checkID($catID);
 $query = mysqli_query($conn, "SELECT * from categories where id = '$catID'");
 $category = mysqli_fetch_object($query);
 ?>
