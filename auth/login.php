@@ -1,4 +1,11 @@
+<?php
+session_start();
+if (!isset($_SESSION['login_count'])) {
+    $_SESSION['login_count'] =0;
+}
 
+if ($_SESSION['login_count'] <5){ 
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,13 +21,12 @@
     <div class = 'row justify-content-center'>
       <div class = 'col-md-8'>
       <?php
-            session_start();
-            if (!empty($_SESSION['message'])) {
-               echo $_SESSION['message'];
-               //remove alert message after being read
-               unset($_SESSION['message']);
-            }
-            ?>
+        if (!empty($_SESSION['message'])) {
+          echo $_SESSION['message'];
+          //remove alert message after being read
+          unset($_SESSION['message']);
+        }
+      ?>
         <div class = 'card'>
           <div class = 'card-header'>Login</div>
 
@@ -40,7 +46,6 @@
                   <input id = 'password' type="password" class = 'form-control' name = 'password' required>
                 </div>
               </div>
-
               <div class = 'form-group row mb-0'>
                 <div class = 'col-md-8 offset-md-4'>
                   <button type = 'submit' class = 'btn btn-primary' name = 'submit'>Login</button>
@@ -54,5 +59,14 @@
       </div>
     </div>
   </div>
+
+<?php }
+else{
+  echo "Too many unsuccessful login attempts, wait 5 minutes <br>  last attempt: ".$_SESSION['last_attempt']."'";
+  if (date("i") >=($_SESSION['last_attempt']+5)){
+    $_SESSION['login_count'] =0;
+  }
+}
+?>
 </body>
 </html>

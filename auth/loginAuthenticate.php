@@ -3,7 +3,8 @@ include '../common/connect.php';
 session_start();
 $email = $_POST['email'];
 $password = $_POST['password'];
-
+$_SESSION['login_count'] +=1;
+$_SESSION['last_attempt'] = date("i");
 //query to db
 $query = mysqli_query($conn, "SELECT email, password, id, level FROM users WHERE email = '$email'");
 $rows = mysqli_num_rows($query);
@@ -24,7 +25,6 @@ if ($rows == 0) {
         $_SESSION['message'] = alert_msg('success', 'Logged In');
         header('location: ../index.php?page=forum');
     } else {
-
         $_SESSION['message'] = alert_msg('danger', 'Wrong Password');
         header('location: login.php');
     }
