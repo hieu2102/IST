@@ -103,10 +103,10 @@ while ($row = mysqli_fetch_object($postQuery)) {?>
 <nav>  
   <ul class="pagination">
     <li><a class = 'page-link' href="index.php?page=topics&topicID=<?=$topicID?>&pageno=<?=$pageno-1?>">Previous</a></li>
-    <li class="page-item"><a class="page-link" href="index.php?page=topics&topicID=<?=$topicID?>&pageno=1">1</a></li>
-    <li class="page-item"><a class="page-link" href="index.php?page=topics&topicID=<?=$topicID?>&pageno=2">2</a></li>
-    <li class="page-item"><a class="page-link" href="index.php?page=topics&topicID=<?=$topicID?>&pageno=3">3</a></li>
+    <?php if ($pageno < $total_page){ ?> 
     <li class="page-item"><a class="page-link" href="index.php?page=topics&topicID=<?=$topicID?>&pageno=<?=$pageno+1?>">Next</a></li>
+    <?php }else{
+    echo "<li class = 'page-item' disabled><a class = 'page-link'>Next</a></li>";}?>
   </ul>
 </nav>
         <?php if ($topic->state != 'closed') {?>

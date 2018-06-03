@@ -35,20 +35,14 @@ if (strlen($password) < 8) {
                     header('location: register.php');
 
                 } else {
-                    //check for existing email or id
-                    $check = mysqli_query($conn, "SELECT * FROM users WHERE email = '$email' or id = '$id' ");
-                    $rows = mysqli_num_rows($check);
-                    if ($rows >= 1) { //fail email or id check
-                        $_SESSION['message'] = alert_msg('danger', 'Email or ID already registered');
+                    //hash password using bcrypt
+                    $hashedP = password_hash($password, PASSWORD_BCRYPT);
+                    //store input data to database
+                    $insert = mysqli_query($conn, "INSERT INTO users (id, username, password, email) VALUES ('$id', '$name', '$hashedP', '$email')");
+                    if ($insert == false) {
+                        $_SESSION['message'] = alert_msg('danger', 'Duplicate Record');
                         header('location: register.php');
-                    }
-                    //passed all check, proceed to account creation
-                    else {
-                        //hash password using bcrypt
-                        $hashedP = password_hash($password, PASSWORD_BCRYPT);
-
-                        //store input data to database
-                        mysqli_query($conn, "INSERT INTO users (id, username, password, email) VALUES ('$id', '$name', '$hashedP', '$email')");
+                    } else {
                         $_SESSION['message'] = alert_msg('success', 'Account Created ');
                         header('location: login.php');
                     }

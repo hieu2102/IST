@@ -85,10 +85,10 @@ while ($row = mysqli_fetch_object($list)) {?>
     <nav>
   <ul class="pagination">
     <li><a class = 'page-link' href="index.php?page=usersManage&pageno=<?=$pageno - 1?>">Previous</a></li>
-    <li class="page-item"><a class="page-link" href="index.php?page=usersManage&pageno=1">1</a></li>
-    <li class="page-item"><a class="page-link" href="index.php?page=usersManage&pageno=2">2</a></li>
-    <li class="page-item"><a class="page-link" href="index.php?page=usersManage&pageno=3">3</a></li>
+    <?php if ($pageno < $total_page){ ?> 
     <li class="page-item"><a class="page-link" href="index.php?page=usersManage&pageno=<?=$pageno + 1?>">Next</a></li>
+    <?php }else{
+    echo "<li class = 'text-muted'  disabled><a class = 'page-link'>Next</a></li>";}?>
   </ul>
 </nav>
 </body>
