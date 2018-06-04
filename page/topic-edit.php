@@ -3,10 +3,8 @@ $topicID = $_POST['topicID'];
 $level = $_SESSION['level'];
 $starter = $_POST['userID'];
 $subject = $_POST['subject'];
-if ($level != 'admin' || $_SESSION['id'] != $starter){
-    $_SESSION['message'] = alert_msg("danger", "Unauthorized Action");
-    header("location: index.php?page=forum");
-}
+if ($level == 'admin' || $_SESSION['id'] == $starter){
+   
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -36,3 +34,7 @@ if ($level != 'admin' || $_SESSION['id'] != $starter){
     </script> -->
 </body>
 </html>
+        <?php }else{
+             $_SESSION['message'] = alert_msg("danger", "Unauthorized Action");
+             header("location:".$_SERVER['HTTP_REFERER']);
+            } ?>

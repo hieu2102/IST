@@ -26,12 +26,12 @@ $userID = $_SESSION['id'];
     <input type="submit" class = 'btn btn-dark' name = 'submit' value = 'Submit'>
     </form>
     <!-- ckeditor script -->
-    <script>
+    <!-- <script>
         ClassicEditor
             .create( document.querySelector( '#editor'))
             .catch( error => {
                 console.error( error);
             });
-    </script>
+    </script> -->
 </body>
 </html>

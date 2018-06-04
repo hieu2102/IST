@@ -3,7 +3,7 @@ $userID = $_GET['userID'];
 //avoid injection && check ID validity
 if (!ctype_digit($userID) || strlen($userID) != 10 || substr($userID, 0, 2) > 18) {
     $_SESSION['message'] = alert_msg("danger", "Invalid ID");
-    header("location: index.php?page=forum");
+    header("location:".$_SERVER['HTTP_REFERER']);
 } else {
     $query = "SELECT
         users.email as email, users.username as username,
@@ -12,7 +12,7 @@ if (!ctype_digit($userID) || strlen($userID) != 10 || substr($userID, 0, 2) > 18
     $sql = mysqli_query($conn, $query);
     if (mysqli_num_rows($sql) == 0) {
         $_SESSION['message'] = alert_msg("info", "User Does not Exist");
-        header("location: index.php?page=forum");
+        header("location:".$_SERVER['HTTP_REFERER']);
     } else {
         $user = mysqli_fetch_object($sql);
 

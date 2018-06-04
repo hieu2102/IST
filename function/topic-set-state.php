@@ -20,6 +20,6 @@ if (!$valid_state){
 }else{
     mysqli_query($conn, "UPDATE topics set state = '$state' where id = '$topicID'");
     $_SESSION['message'] = alert_msg('success', 'Topic State Changed');
-    header("location:index.php?page=category&catID=" . $catID);
+    header("location:".$_SERVER['HTTP_REFERER']);
 
 }
