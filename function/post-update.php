@@ -1,7 +1,6 @@
 <?php
 $content = $_POST['content'];
 $post_id = $_POST['postID'];
-checkID($post_id);
 $topicID = $_POST['topicID'];
 
 if (strlen(strip_tags($content)) <20){

@@ -4,13 +4,6 @@ if ($_SESSION['level'] != 'banned'){
 $USER = $_SESSION['id'];
 $USER_LEVEL = mysqli_fetch_object(mysqli_query($conn, "SELECT level from users where id ='$USER'"));
 $_SESSION['level'] = $USER_LEVEL->level;
-//prvent injection from $_GET
-function checkID($id){
-    if (!ctype_digit($id)){
-        $_SESSION['message'] = alert_msg("danger", "Invalid ID");
-        header("location: index.php?page=forum");
-    }
-}
 
 ?>
 

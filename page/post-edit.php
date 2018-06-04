@@ -10,7 +10,7 @@ $post = mysqli_fetch_object($sql);
 <head>
     <meta charset="utf-8">
     <title>Edit Post</title>
-    <script src="https://cdn.ckeditor.com/ckeditor5/10.0.1/classic/ckeditor.js"></script>
+    <!-- <script src="https://cdn.ckeditor.com/ckeditor5/10.0.1/classic/ckeditor.js"></script> -->
 </head>
 <body>
 <br>
@@ -18,18 +18,20 @@ $post = mysqli_fetch_object($sql);
     <h3>Post Content</h3>
     <form method = "POST" action="index.php?function=post-update">
 
-    <textarea name="content" id="editor" rows='10'><?=$post->content?></textarea>
+    <!-- <textarea name="content" id="editor" rows='10'><</textarea> -->
+    <textarea name="content" class = 'form-control' rows='10' cols = '30' placeholder = "Accept HTML styling" ><?=$post->content?></textarea>
+
     <br>
     <input type="hidden" name = 'topicID' value = '<?=$post->post_topic?>'>
     <input type="hidden" name = 'postID' value = '<?=$post->id?>'>
     <input type="submit" class = 'btn btn-dark' name = 'submit' value = 'Submit'>
 </div>
-    <script>
+    <!-- <script>
         ClassicEditor
             .create( document.querySelector( '#editor' ) )
             .catch( error => {
                 console.error( error );
             } );
-    </script>
+    </script> -->
 </body>
 </html>

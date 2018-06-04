@@ -1,6 +1,5 @@
 <?php
 $topicID = $_GET['topicID'];
-checkID($topicID);
 
 //pagination
 if (isset($_GET['pageno'])){

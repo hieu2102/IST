@@ -1,6 +1,5 @@
 <?php
 $postID = $_POST['postID'];
-checkID($postID);
 
 $sql = mysqli_query($conn, "SELECT post_by, post_topic from posts where id = '$postID'");
 $post = mysqli_fetch_object($sql);

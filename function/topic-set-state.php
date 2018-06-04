@@ -2,7 +2,6 @@
 $topicID = $_POST['topicID'];
 $catID = $_POST['catID'];
 $state = $_POST['state'];
-checkID($topicID);
 if ($_SESSION['level'] != 'admin') {
     $_SESSION['message'] = alert_msg('danger', "Unauthorized Action");
     header("location:".$_SERVER['HTTP_REFERER']);

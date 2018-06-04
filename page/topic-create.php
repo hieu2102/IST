@@ -9,7 +9,7 @@ $userID = $_SESSION['id'];
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>New Topic</title>
-    <script src="https://cdn.ckeditor.com/ckeditor5/10.0.1/classic/ckeditor.js"></script>
+    <!-- <script src="https://cdn.ckeditor.com/ckeditor5/10.0.1/classic/ckeditor.js"></script> -->
 </head>
 <body>
     <form method = 'POST' action="index.php?function=topic-store">
@@ -18,7 +18,8 @@ $userID = $_SESSION['id'];
     <input type="text" name = 'subject' class = 'form-control' placeholder = 'Input Topic Subject'>
     <br>
     <h3>Post Content</h3>
-    <textarea name="content" id="editor" cols="30" rows="10"></textarea>
+    <!-- <textarea name="content" id="editor" cols="30" rows="10"></textarea> -->
+    <textarea name="content" class = "form-control" id="" cols="30" rows="10" placeholder = "Accept HTML styling"></textarea>
     <br>
     <input type="hidden" name = 'catID' value = '<?=$catID?>'>
     <input type="hidden" name = 'userID' value = '<?=$userID?>'>

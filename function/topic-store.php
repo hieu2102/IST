@@ -1,8 +1,6 @@
 <?php
 $userID = $_POST['userID'];
-checkID($userID);
 $catID = $_POST['catID'];
-checkID($userID);
 $subject = $_POST['subject'];
 $content = $_POST['content'];
 
@@ -30,6 +28,6 @@ if (strlen(strip_tags($subject)) < 20 || strlen(strip_tags($subject))>200) {
     //create first post
     mysqli_query($conn, "INSERT INTO posts (content, post_by, post_topic) values ('$content', '$userID', '$topicID')");
     $_SESSION['message'] = alert_msg('success', "Topic Created");
-    header('location: index.php?page=category&ID='.$catID);
+    header('location: index.php?page=category&catID='.$catID);
 
 }

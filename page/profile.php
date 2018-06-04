@@ -42,13 +42,11 @@ if (!ctype_digit($userID) || strlen($userID) != 10 || substr($userID, 0, 2) > 18
             <div class = 'row'><strong>ID</strong>: <?=$userID?></div>
             <div class = 'row'><strong>email</strong>: <?=$user->email?></div>
             <div class = 'row'><strong>Join Date</strong>: <?=$user->joinDate?></div>
-            <div class = 'row'>Latest Post
-                <p>:
+            <div class = 'row'>Latest Post: 
                 <?php if (mysqli_num_rows($postSQL) > 0) {
     $lastPost = mysqli_fetch_object($postSQL);?>
                     <a href="index.php?page=topics&topicID=<?=$lastPost->topicID?>"><?=$lastPost->subject?></a> <small class = 'text-muted'><?=$lastPost->postTime?></small>
                 <?php }?>
-                </p>
             </div>
         </div>
     </div>

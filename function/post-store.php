@@ -1,9 +1,7 @@
 <?php
 $content = $_POST['content'];
 $user = $_POST['userID'];
-checkID($user);
 $topic = $_POST['topicID'];
-checkID($topic);
 
 if (strlen(strip_tags($content)) < 20) {
     $_SESSION['message'] = alert_msg('danger', 'Post too short');

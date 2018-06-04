@@ -1,6 +1,5 @@
 <?php
 $catID = $_GET['catID'];
-checkID($catID);
 
 //pagination
 if (isset($_GET['pageno'])){
@@ -69,6 +68,7 @@ $query = mysqli_query($conn, $sql_topics);
                         </div>
                         <div class = 'col col-md-2'>
                             <form method = "POST" action="index.php?page=topic-edit">
+                                <input type="hidden" name = 'subject' value = '<?=$topics->subject?>'>
                                 <input type="hidden" name = "topicID" value = "<?=$topics->id?>">
                                 <input type="hidden" name = "userID" value = "<?=$topics->userID?>">
                                 <input type="submit" name = "submit" value = "Edit" class = 'btn btn-info'>
@@ -124,7 +124,6 @@ $query = mysqli_query($conn, $sql_topics);
   </ul>
 </nav>
 <br>
-   <a class = "btn btn-dark" href="index.php?page=topic-create&catID=<?=$id?>">New Topic</a>
-
+<a class = "btn btn-dark" href="index.php?page=topic-create&catID=<?=$catID?>">New Topic</a>
 </body>
 </html>
