@@ -1,5 +1,6 @@
 <?php
 include 'common/navbar.php';
+if ($_SESSION['level'] != 'banned'){ 
 $USER = $_SESSION['id'];
 $USER_LEVEL = mysqli_fetch_object(mysqli_query($conn, "SELECT level from users where id ='$USER'"));
 $_SESSION['level'] = $USER_LEVEL->level;
@@ -37,3 +38,7 @@ function checkID($id){
         </div>
     </body>
 </html>
+
+<?php }else{
+    echo "You have been banned";
+}
